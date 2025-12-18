@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cory Wethington - Software Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #AFA98D;
+            background-color: #000000;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(34, 174, 209, 0.2);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #AFA98D;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #22AED1;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('https://res.cloudinary.com/dmxs3zpc0/image/upload/v1766038395/IMG_5095_fscslr.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            color: white;
+            position: relative;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        #hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #015FB9;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #22AED1;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: #182825;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #6D8EA0;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(34, 174, 209, 0.3);
+            border-color: #22AED1;
+        }
+
+        .skill-card h3 {
+            color: #22AED1;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card p {
+            color: #AFA98D;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: #182825;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(34, 174, 209, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #6D8EA0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(34, 174, 209, 0.4);
+            border-color: #22AED1;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #015FB9 0%, #22AED1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-video {
+            width: 100%;
+            height: 250px;
+            margin-top: 1rem;
+        }
+
+        .project-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #22AED1;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: #AFA98D;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            padding: 1rem 2rem;
+            background: #015FB9;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: #22AED1;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            #hero p {
+                font-size: 1.2rem;
+            }
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="hero">
+    <div>
+        <h1>Hi, I'm Cory Wethington</h1>
+        <p>Software Developer</p>
+        <a href="#contact" class="btn">Get In Touch</a>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 1.5rem auto; font-size: 1.1rem;">
+        I'm a recent Computer Science graduate from Texas A&M University-Texarkana with a concentration in Software Engineering and a strong passion for full-stack development, backend systems, and cloud technologies.
+        I've developed web applications, mobile apps, and database-driven systems, gaining hands-on experience with RESTful APIs, SQL, Java, Python, and AWS.
+    </p>
+
+
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 1.5rem auto; font-size: 1.1rem;">
+        I'm passionate about building efficient, reliable software and collaborating with teams to deliver solutions that make an impact.
+        I'm actively looking for an entry-level software engineering opportunity where I can contribute, learn fast, and continue developing my skills.
+    </p>
+
+
+    <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem;">
+        Alongside my technical abilities, I bring strong interpersonal skills and a fun, positive personality that helps teams stay motivated and connected.
+        I know how to keep the environment light when appropriate, but I also know how to lock in and stay focused when it's time to deliver.
+        Through team projects and real-world work experience, I've learned how to be both an effective leader and a dependable team member, adapting to whatever role helps the team succeed.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Languages</h3>
+            <p>Python, Java, C++, JavaScript, SQL, HTML5, PHP</p>
+        </div>
+        <div class="skill-card">
+            <h3>Web Technologies</h3>
+            <p>RESTful APIs, Apache Tomcat, LAMP Stack, HTML5, JavaScript, Frontend Development</p>
+        </div>
+        <div class="skill-card">
+            <h3>Database Systems</h3>
+            <p>MySQL, PostgreSQL, JDBC, Database Design & Optimization</p>
+        </div>
+        <div class="skill-card">
+            <h3>Development Tools</h3>
+            <p>Git, AWS, Eclipse IDE, Android Studio, Apache HTTP Server</p>
+        </div>
+        <div class="skill-card">
+            <h3>Testing & DevOps</h3>
+            <p>Unit Testing, Integration Testing, CI/CD Pipelines, Debugging</p>
+        </div>
+        <div class="skill-card">
+            <h3>Methodologies</h3>
+            <p>Agile, SDLC, Object-Oriented Programming, Test-Driven Development</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+        <!-- Study Session Web Application -->
+        <div class="project-card">
+            <div class="project-img">
+                <img src="https://via.placeholder.com/400x200/015FB9/ffffff?text=Study+Session+App" alt="Study Session Web Application">
+            </div>
+            <div class="project-content">
+                <h3>Study Session Web Application</h3>
+                <p>Full-stack web application connecting students for collaborative study groups. Served as technical lead for the team, architecting a three-tier application with Java backend, Apache Tomcat, MySQL database, and HTML5/JavaScript frontend.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #6D8EA0;">
+                    <strong>Technologies:</strong> Java, Apache Tomcat, MySQL, HTML5, JavaScript, PHP, AWS EC2, LAMP Stack
+                </p>
+                <a href="https://github.com/cjw2025/StudySessions" target="_blank" style="display: inline-block; margin-top: 1rem; color: #22AED1; text-decoration: none; font-weight: 500;">View on GitHub →</a>
+            </div>
+        </div>
+
+        <!-- Home Health SQL Database System -->
+        <div class="project-card">
+            <div class="project-img">
+                <img src="https://via.placeholder.com/400x200/015FB9/ffffff?text=Healthcare+Database" alt="Home Health Database System">
+            </div>
+            <div class="project-content">
+                <h3>Home Health SQL Database System</h3>
+                <p>Enterprise-level database system for healthcare business operations with focus on data integrity and regulatory compliance. Developed complex SQL queries, stored procedures, and reporting interfaces with optimized performance.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #6D8EA0;">
+                    <strong>Technologies:</strong> PostgreSQL, SQL, Database Design, Data Encryption
+                </p>
+                <a href="https://github.com/cjw2025/Home-Health-SQL-Database" target="_blank" style="display: inline-block; margin-top: 1rem; color: #22AED1; text-decoration: none; font-weight: 500;">View on GitHub →</a>
+            </div>
+        </div>
+
+        <!-- Dice Roller Android App -->
+        <div class="project-card">
+            <div class="project-img">🎲</div>
+            <div class="project-content">
+                <h3>Dice Roller Android App</h3>
+                <p>Android application that allows users to select the number of sides for a die and rolls to display a random outcome. Built with Android Studio for mobile development practice.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #6D8EA0;">
+                    <strong>Technologies:</strong> Android Studio, Java/Kotlin
+                </p>
+                <a href="https://github.com/cjw2025/Dice_Roller" target="_blank" style="display: inline-block; margin-top: 1rem; color: #22AED1; text-decoration: none; font-weight: 500;">View on GitHub →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Let's Connect</h2>
+    <div class="contact-content">
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+            I'm actively looking for software engineering opportunities.
+            Feel free to reach out if you'd like to discuss potential roles or just connect!
+        </p>
+        <div class="contact-links">
+            <a href="mailto:cjwethington@gmail.com">Email</a>
+            <a href="https://github.com/cjw2025" target="_blank">GitHub</a>
+            <a href="tel:+19039081596">Phone</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
+</body>
+</html>
